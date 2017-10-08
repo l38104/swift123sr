@@ -1,0 +1,48 @@
+import Cocoa
+import SpriteKit
+import GameplayKit
+import AVFoundation
+
+class ViewController: NSViewController {
+
+    var backingAudio = AVAudioPlayer()
+    
+    @IBOutlet var skView: SKView!
+    
+    override func viewDidLoad() {
+        
+        //BackingAudio
+        let filePath = Bundle.main.path(forResource: "Song", ofType: "wav")
+        let audioNSURL = NSURL(fileURLWithPath: filePath!)
+        
+        do {backingAudio = try AVAudioPlayer(contentsOf: audioNSURL as URL)}
+        catch {return print("Cannot find audio!")}
+        
+        backingAudio.numberOfLoops = -1
+        backingAudio.volume = 0.8
+        backingAudio.play()
+        
+        
+        //GameScene
+        super.viewDidLoad()
+        
+        if (self.view as NSView?) != nil  {
+            
+            //Scene size
+            let scene = GameScene(size: CGSize(width: 2304 , height: 1440))
+                
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+            // Present the scene
+            if let view = self.skView {
+                view.presentScene(scene)
+                view.ignoresSiblingOrder = true
+                view.showsFPS = true
+                view.showsNodeCount = true
+                }
+            }
+        }
+    
+   
+}
