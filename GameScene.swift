@@ -11,7 +11,7 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         
         //GameArea
-        let maxAspectRatio: CGFloat = 16.0/9.0
+        let maxAspectRatio: CGFloat = 16.0/9 
         let playableWidth = size.width/maxAspectRatio
         let playableHeight = size.height/maxAspectRatio
         
