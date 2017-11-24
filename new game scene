@@ -6,7 +6,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var levelNumber = 0
-    var livesNumber = 3
+    var livesNumber = 2
     var scoreNumber = 0
     
     var direction = CGVector(dx: 0, dy: 1)
