@@ -36,6 +36,7 @@ class GameScene: SKScene {
     
     
     
+    //atribuir valor  aos objectos d forma a controlar o que acontece em caso de contacto
     func didBegin(_ contact: SKPhysicsContact) {
         
         var body1 = SKPhysicsBody()
