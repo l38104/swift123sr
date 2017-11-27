@@ -1,4 +1,4 @@
-redt
+
 
 import Cocoa
 import SpriteKit
