@@ -44,5 +44,5 @@ func genarateMap() {
             
           
             
-            if distance <= 200.0 {
+            
                 
