@@ -698,12 +698,7 @@ class GameScene: SKScene {
                 self.addChild(chaseShipMissile)
                 }
                     
-                let move = SKAction.move(to: position1, duration: 0.8)
-                let delete = SKAction.removeFromParent()
-                
-                let sequence = SKAction.sequence([spwan,move,delete])
-                
-                chaseShipMissile.run(sequence)
+               
                 
             }
             
