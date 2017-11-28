@@ -328,3 +328,70 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(box)
         }
     }
+      func player() {
+        
+        let playerShipTexture = SKTexture(imageNamed: "Player")
+        
+        playerShip.setScale(0.8)
+        playerShip.position = CGPoint(x: self.size.width/2, y: self.size.height/4)
+        playerShip.zPosition = 3
+
+        playerShip.physicsBody = SKPhysicsBody(texture: playerShipTexture, size: playerShip.size)
+        playerShip.physicsBody?.isDynamic = true
+        playerShip.physicsBody!.allowsRotation = false
+        playerShip.physicsBody!.affectedByGravity = false
+        playerShip.physicsBody!.linearDamping = 0.0
+        playerShip.physicsBody!.friction = 0.0
+        playerShip.physicsBody!.categoryBitMask = PhysicsCategories.playerShip
+        playerShip.physicsBody!.collisionBitMask = PhysicsCategories.none
+        playerShip.physicsBody!.contactTestBitMask = PhysicsCategories.chaseShip
+        
+        self.addChild(playerShip)
+    }
+    
+    
+    
+    func background() {
+        
+        let background1 = SKSpriteNode(imageNamed: "Background")
+        let background2 = SKSpriteNode(imageNamed: "Background")
+        
+            background1.setScale(1)
+            background1.size = self.size
+            background1.position = CGPoint(x: 2304/2, y: 1440/2)
+            background1.zPosition = 0
+            self.addChild(background1)
+            
+            background2.setScale(1)
+            background2.size = self.size
+            background2.position = CGPoint(x: 2304/2, y: 1440 + 1440/2)
+            background2.zPosition = 0
+            self.addChild(background2)
+        
+        let move1 = SKAction.moveTo(y: -1440/2, duration: 40)
+        let delete1 = SKAction.removeFromParent()
+        
+        let move2 = SKAction.moveTo(y: 1440/2, duration: 40)
+        let delete2 = SKAction.removeFromParent()
+        
+        let sequence1 = SKAction.sequence([move1, delete1])
+        let sequence2 = SKAction.sequence([move2, delete2])
+        
+        background1.run(sequence1)
+        background2.run(sequence2)
+    }
+    
+    
+    func callBackground() {
+        
+        let call = SKAction.run { self.background() }
+        let wait = SKAction.wait(forDuration: 40)
+        let sequence = SKAction.sequence([call, wait])
+        
+        run(SKAction.repeatForever(sequence))
+    }
+ 
+    
+    func turret(turretPosition: CGPoint) {
+        
+
