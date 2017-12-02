@@ -1,0 +1,58 @@
+
+import Foundation
+import SpriteKit
+
+class MainMenuScene: SKScene {
+    
+    override func didMove(to view: SKView) {
+        
+        let background = SKSpriteNode(imageNamed: "Background")
+        background.position = CGPoint(x: 2304/2, y: 1440/2)
+        background.zPosition = 0
+        self.addChild(background)
+        
+        let authorsLable = SKLabelNode(fontNamed: "Copperplate-Bold")
+        authorsLable.text = "38104-38046-38847"
+        authorsLable.fontSize = 30
+        authorsLable.fontColor = SKColor.white
+        authorsLable.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        authorsLable.position = CGPoint(x: 2304/2, y: 1440/2 + 400)
+        authorsLable.zPosition = 100
+        self.addChild(authorsLable)
+        
+        let titleLable = SKLabelNode(fontNamed: "Copperplate-Bold")
+        titleLable.text = "Space Race"
+        titleLable.fontSize = 80
+        titleLable.fontColor = SKColor.white
+        titleLable.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        titleLable.position = CGPoint(x: 2304/2, y: 1440/2 + 200)
+        titleLable.zPosition = 100
+        self.addChild(titleLable)
+        
+        let playLable = SKLabelNode(fontNamed: "Copperplate-Bold")
+        playLable.text = "Play"
+        playLable.fontSize = 50
+        playLable.fontColor = SKColor.white
+        playLable.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        playLable.position = CGPoint(x: 2304/2, y: 1440/2)
+        playLable.zPosition = 100
+        playLable.name = "playButton"
+        self.addChild(playLable)
+    }
+   
+    
+    override func mouseDown(with event: NSEvent) {
+        
+        let pointOfTouch = event.location(in: self)
+        
+        let nodeTapped = atPoint(pointOfTouch)
+        
+        if nodeTapped.name == "playButton" {
+            
+            let sceneToMoveTo = GameScene(size: CGSize(width: 2304 , height: 1440) )
+            sceneToMoveTo.scaleMode = self.scaleMode
+            let transition = SKTransition.fade(withDuration: 0.5)
+            self.view!.presentScene(sceneToMoveTo, transition: transition)
+        }
+    }
+}
