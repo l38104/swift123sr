@@ -16,11 +16,9 @@ class GameSceneTests: XCTestCase {
     
     func testnextLevel() {
         
-        let score = 6
+        let score = 6    
         
-        let scene = GameScene(size: CGSize(width: 2304 , height: 1440))
-        
-        let gameScene = GameScene(size: scene.size)
+        let gameScene = GameScene(size: CGSize(width: 2304 , height: 1440))
         
         XCTAssertFalse(gameScene.nextLevel(gameScore: score))
         
