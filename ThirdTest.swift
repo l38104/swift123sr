@@ -30,3 +30,17 @@ func testWalls(){
                      
       
 }
+func testTimer(){
+      
+      let gameScene=GameScene()
+      
+      let wait = SKAction.wait(forDuration: 0.01)
+      let sequence = SKAction.sequence([call, SKAction.wait(forDuration: 0.02)])
+      
+      XCTAssertTrue(gameScene.timer(wait:wait))
+      XCTAssertTrue(gameScene.timer(sequence:sequence))
+      
+}      
+      
+      
+      
