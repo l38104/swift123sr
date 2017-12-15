@@ -1,7 +1,7 @@
 func testWalls(){
       
         
-      let gameScene=GameScene()
+      let gameScene=GameScene(size: CGSize(width: 2304 , height: 1440))
       
       let leftWall=[[Float(30),Float(27)]]
       let rightWall=[[Float(2274),Float[27]]
@@ -32,7 +32,7 @@ func testWalls(){
 }
 func testTimer(){
       
-      let gameScene=GameScene()
+      let gameScene=GameScene(size: CGSize(width: 2304 , height: 1440))
       
       let wait = SKAction.wait(forDuration: 0.01)
       let sequence = SKAction.sequence([call, SKAction.wait(forDuration: 0.02)])
