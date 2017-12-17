@@ -7,7 +7,14 @@ func testLoseLife(){
       let death=0
       let erro=-1
       
-      XCTAssertTrue(gameScene.loseLife(lifeNumber:life) - Argument passed to call that takes no arguments
-      XCTAssertTrue(gameScene.loseLife(lifeNumber:death) - Argument passed to call that takes no arguments
-      XCTAssertFalse(gameScene.loseLife(lifeNumber:erro) - Argument passed to call that takes no arguments
+      gameScene.loseLife()
+      
+      XCTAssertTrue(gameScene.livesNumber==life)
+      XCTAssertTrue(gameScene.livesNumber == death ," É suposto acabar o jogo") 
+      XCTAssertFalse(gameScene.livesNumber == erro," ERRO!") 
 }
+                    
+                    
+                         
+     
+      
