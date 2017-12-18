@@ -36,7 +36,7 @@ func testTimer(){
       
       gameScene.timer()
       
-      XCTAssertNil(gamseScene.playerShip.y == posPixelY,"Nada deve acontecer")
+      XCTAssertNil(gameScene.playerShip.y == posPixelY,"Nada deve acontecer")
       XCTAsserEqual(gameScene.playerShip.y== posPixelYY, gameScene.livesNumber==0)
       
       
