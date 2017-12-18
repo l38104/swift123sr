@@ -8,5 +8,8 @@ func testAddObstacle(){
      let esquerda= [[Float(70),Float(1473)]]
      let direita= [[Float(70),Float(1473)]]
      
-     XCTAssertTrue(gameScene.addObstacle(points:esquerda))
-     XCTAssertTrue(gameScene.addObstacle(points:direita))
+     
+     gameScene.addObstacle()
+     
+     XCTAssertTrue(gameScene.points == esquerda )
+     XCTAssertTrue(gameScene.points == direita)
